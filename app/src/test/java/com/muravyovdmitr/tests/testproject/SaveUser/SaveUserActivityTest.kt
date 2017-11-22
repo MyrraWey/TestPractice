@@ -101,10 +101,10 @@ class SaveUserActivityTest {
 		val expectedIntent = SavedUserActivity.createIntent(RuntimeEnvironment.application, userName)
 		val actualIntent = ShadowApplication.getInstance().nextStartedActivity
 		//TODO incorrect behavior, return true even for intent without EXTRAs
-		Assert.assertEquals(expectedIntent.component, expectedIntent.component)
-		Assert.assertEquals(expectedIntent.extras.size(), expectedIntent.extras.size())
+		Assert.assertEquals(expectedIntent.component, actualIntent.component)
+		Assert.assertEquals(expectedIntent.extras.size(), actualIntent.extras.size())
 		Assert.assertTrue(actualIntent.extras.containsKey("USER_NAME_EXTRA"))
-		Assert.assertEquals(expectedIntent.extras["USER_NAME_EXTRA"], expectedIntent.extras["USER_NAME_EXTRA"])
+		Assert.assertEquals(expectedIntent.extras["USER_NAME_EXTRA"], actualIntent.extras["USER_NAME_EXTRA"])
 	}
 
 	@Test
